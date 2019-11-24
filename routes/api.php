@@ -24,3 +24,12 @@ Route::get('/test', function(){
 Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
 Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
+
+Route::get('/classrooms', 'ClassroomController@index')->name('classrooms.index');
+Route::post('/classrooms', 'ClassroomController@store')->name('classrooms.store');
+Route::get('/classrooms/{classroom}', 'ClassroomController@show')->name('classrooms.show');
+Route::delete('/classrooms/{classroom}', 'ClassroomController@destroy')->name('classrooms.destroy');
+
+Route::get('/classrooms/{classroom}/attendees', 'AttendeeController@index')->name('attendees.index');
+Route::get('/classrooms/{classroom}/attendees/{attendee}/timepunches', 'TimepunchController@index')->name('timepunches.index');
+
