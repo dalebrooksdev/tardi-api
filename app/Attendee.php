@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendee extends Model
 {
+    protected $fillable = ['name'];
+
     public function classroom(){
         return $this->belongsTo('App\Classroom');
     }
